@@ -39,7 +39,10 @@
 }
 
 .input-container:focus-within{
-    border: 2px solid white;
+    border: 2px solid var(--primary_green);
+}
+.input-container:focus-within >.label-container{
+    background-color: var(--primary_green);
 }
 
 .input-container img {

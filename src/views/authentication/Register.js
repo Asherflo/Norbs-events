@@ -1,13 +1,16 @@
-import Input from "../../components/reusable.css/Input";
+import Input from "../../components/reusable/Input";
 
 import { useState } from "react";
 import emailIcon from "../../assets/email.svg";
 import passwordIcon from "../../assets/password.svg";
 import "./authentication.css";
 import StepContainer from "../../components/authentication/register/StepContainer";
-
+import { useNavigate } from "react-router-dom"
 
 const Register = () => {
+
+    let navigate = useNavigate()
+
     const [userInput,setUserInput] = useState({})
     const[ step,setStep] = useState(1)
     const[fieldError,setFieldError] = useState(
@@ -17,26 +20,24 @@ const Register = () => {
             email:{message: "",error: false},
             phone:{message: "",error: false},
             password:{message: "",error: false},
-            confirm:{message: "",error: false} 
-    }
-    
-    )
+            confirm:{message: "",error: false}})
+
     const handleChange= (e)  =>{
-        setUserInput ({... userInput,[e.target.name]: e.target.value})
-        checkIfFeildIsEmpty(e)
+        setUserInput ({...userInput,[e.target.name]: e.target.value})
+        checkIfFieldIsEmpty(e)
     }
 
     const handleClick = () =>{
         console.log(userInput)
     }
 
-    const checkIfFeildIsEmpty =(e) =>{
+    const checkIfFieldIsEmpty =(e) =>{
         switch(e.target.name){
             case "email":
                 if(e.target.value === ""){
                     setFieldError({
                         ...fieldError,[e.target.name] :{
-                            message:"please enter a vaild email",
+                            message:"please enter a valid email",
                             error:true
                         }
                     })
@@ -77,7 +78,7 @@ const Register = () => {
         <div className="authenticationContainer">
             <div className="leftSide">
                 <div className="leftSide-container">
-                    <a href="../Login.js">
+                    <a onClick={() => navigate("/login")}>
                         Have an account?
                         <span style={{
                             color:'var(--primary_green',
@@ -92,15 +93,15 @@ const Register = () => {
                             aimed at helping you facilities and run a smooth event</p>
                     </div>
                   { step === 1 && <StepContainer step={1} headerTitle="Let's know you">
-                        <Input text="text" handleChange={handleChange}icon={emailIcon} label="firstName" fieldError={fieldError}/> 
-                        <Input text="text" handleChange={handleChange}icon={emailIcon} label="lastName" fieldError={fieldError}/> 
-                        <Input text="text" handleChange={handleChange}icon={passwordIcon} label="email" fieldError={fieldError}/>
+                        <Input text="text" handleChange={handleChange} icon={emailIcon} label="firstName" fieldError={fieldError}/>
+                        <Input text="text" handleChange={handleChange} icon={emailIcon} label="lastName" fieldError={fieldError}/>
+                        <Input text="text" handleChange={handleChange} icon={passwordIcon} label="email" fieldError={fieldError}/>
 
                     </StepContainer>}
                     { step === 2 && <StepContainer step={2} headerTitle="Let's secure Your Details">
-                        <Input text="text" handleChange={handleChange}icon={emailIcon} label="phone" fieldError={fieldError}/> 
-                        <Input text="text" handleChange={handleChange}icon={emailIcon} label="password" fieldError={fieldError}/> 
-                        <Input text="text" handleChange={handleChange}icon={passwordIcon} label="confirm" fieldError={fieldError}/>
+                        <Input text="text" handleChange={handleChange} icon={emailIcon} label="phone" fieldError={fieldError}/>
+                        <Input text="text" handleChange={handleChange} icon={emailIcon} label="password" fieldError={fieldError}/>
+                        <Input text="text" handleChange={handleChange} icon={passwordIcon} label="confirm" fieldError={fieldError}/>
                     </StepContainer>}
 
                     {step === 1 && 
@@ -116,15 +117,13 @@ const Register = () => {
                             Register
                         </button>
                     </div>}
+
                     <div className="social-media">
-                        <a>
-                            <div className="social-media-icon"></div>
-                        </a>
+                          <button> <div className="social-media-icon"></div></button>
                     </div>
                 </div>
             </div>
             <div className="rightSide">
-            
             </div>
         </div>
     )

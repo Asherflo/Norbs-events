@@ -1,10 +1,12 @@
-import Input from "../../components/reusable.css/Input";
 import passwordIcon from "../../assets/password.svg"
 import emailIcon from "../../assets/email.svg"
 import "./authentication.css"
-import { useState } from "react";
+import { useState } from "react"
+import Input from "../../components/reusable/Input";
+import { useNavigate} from "react-router-dom";
 
 const Login = () => {
+    let navigate = useNavigate()
     const [userInput,setUserInput] = useState({})
     const[fieldError,setFieldError] = useState(
         {
@@ -69,7 +71,7 @@ const Login = () => {
         <div className="authenticationContainer">
             <div className="leftSide">
                 <div className="leftSide-container">
-                    <a href="./Register.js">
+                    <a onClick={() => navigate("/register")}>
                         Dont  Have an account?
                         <span style={{
                             color:'var(--primary_green',
@@ -84,8 +86,8 @@ const Login = () => {
                             aimed at helping you facilities and run a smooth event</p>
                     </div>
                     <div className="input-button-fields">
-                    <Input text="email" handleChange={handleChange}icon={emailIcon} label="email"  fieldError={fieldError}/> 
-                    <Input text="password" handleChange={handleChange}icon={passwordIcon} label="password" fieldError={fieldError}/>
+                    <Input text="email" handleChange={handleChange} icon={emailIcon} label="email"  fieldError={fieldError}/>
+                    <Input text="password" handleChange={handleChange} icon={passwordIcon} label="password" fieldError={fieldError}/>
                     <button  className="authentication-button"onClick={handleClick}>Get Into Norbs</button>
                     </div>
                   
