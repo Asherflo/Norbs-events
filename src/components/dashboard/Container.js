@@ -2,15 +2,15 @@ import React from "react";
 import Header from "./Header";
 import SideNav from "./SideNav";
 
-const Container = (pros) => {
+const Container = (props) => {
     return(
-        <div>
-            <Header/>
-            <div>
-                <SideNav/>
-                {pros.children}
+        <>
+            <SideNav/>
+            <div className="dashboardBodyContainer">
+                <Header/>
+                {props.children}
             </div>
-        </div>
+        </>
     )
 
 }
