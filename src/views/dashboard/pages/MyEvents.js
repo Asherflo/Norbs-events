@@ -1,21 +1,25 @@
 import React from "react";
-import  "./myEvents.css"
+import "./myEvents.css"
 
 const MyEvents = () => {
     return(
-        <div>
-            <div className= "my-events-header">
-                <div className= "my-events-header-filter">
-                    <input type= "date"/>
+        <div className="my-events-container">
+            <div className="my-events-header">
+                <div className="my-events-header-filter">
+                    <div>
+                        <p>Filter By:</p>
+                        <input type="date"/>
+                    </div>
+                    <div>
+                        <p>Search Events</p>
+                        <input type="search" id="filter-search"/>
+                    </div>
                 </div>
-                <div className= "my-events-header-search">
-                    <input type= "search"/>
-                </div>
+
                 <button>Create Event</button>
             </div>
         </div>
     )
-
 }
 
 export  default  MyEvents
