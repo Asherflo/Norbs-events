@@ -34,5 +34,19 @@
       "event_dress_code": ""
 
     }
+  ],
+  "fakeEvents": [
+    {
+      "title": "Alakija",
+    "description": "today is the day that th lord has made"
+  },
+    {
+      "title": "florence",
+      "description": "blossom"
+    },
+    {
+      "title": "oluwasegun",
+      "description": "i'm a victory"
+    }
   ]
 }
