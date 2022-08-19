@@ -5,7 +5,7 @@ const MyEvent = ({event}) => {
 
 
     return(
-        <div className="event-cards">
+        <div className="event-card">
             <div className="image-containers" style={{backgroundImage:'url(https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=1600)' }}>
             </div>
             <div className="event-detail">
